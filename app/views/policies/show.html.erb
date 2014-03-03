@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+
+<h2><%= "Policy# #{@policy.id} - POLICY INFO" %></h2>
+<hr>
+<p><%= link_to "Drivers", drivers_path %></p>
+<hr>
+<p><strong>Named Insured: </strong><%= @driver.first_name + " " + @driver.last_name %></p>
+<p><strong>Address 1: </strong><%=  @policy.mail_addr_1 %></p>
+<p><strong>Address 2: </strong><%=  @policy.mail_addr_2 %></p>
+<p><strong>City: </strong><%=  @policy.mail_addr_city %></p>
+<p><strong>State: </strong><%=  @policy.mail_addr_state %></p>
+<p><strong>Zip: </strong><%=  @policy.mail_addr_zip %></p>
+
+
+<%= link_to 'Edit', edit_policy_path(@policy) %> |
+<%= link_to 'Back', policies_path %>
+
+<p>
+<% @drivers.each do |driver| %>
+  <p><%= driver.full_name %> | <%= link_to "Edit Driver", edit_driver_path(driver) %></p>
+<% end %>
+</p>
