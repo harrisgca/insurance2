@@ -1,8 +1,9 @@
 Insurance::Application.routes.draw do
   root "policies#index"
   
-  resources :policies
-  resources :drivers
+  resources :policies do
+    resources :drivers
+  end
   resources :vehicles
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
