@@ -2,9 +2,9 @@
 
 <h2><%= "Policy# #{@policy.id} - POLICY INFO" %></h2>
 <hr>
-<p><%= link_to "Drivers", policy_drivers_path(@policy.id) %></p>
+<p><%= link_to "Drivers", policy_drivers_path(@policy.id) %> | <%= link_to "Vehicles", policy_vehicles_path(@policy.id) %> | <%= link_to "Home", root_path %></p>
 <hr>
-<p><strong>Named Insured: </strong><%= @driver1.first_name + " " + @driver1.last_name %></p>
+
 <p><strong>Address 1: </strong><%=  @policy.mail_addr_1 %></p>
 <p><strong>Address 2: </strong><%=  @policy.mail_addr_2 %></p>
 <p><strong>City: </strong><%=  @policy.mail_addr_city %></p>
@@ -15,8 +15,14 @@
 <%= link_to 'Edit', edit_policy_path(@policy.id) %> |
 <%= link_to 'Back', policies_path %>
 
-<p>
+<p><strong>LISTED DRIVERS</strong></p>
 <% @drivers.each do |driver| %>
   <p><%= driver.full_name %> | <%= link_to "Edit Driver", edit_policy_driver_path(@policy.id, driver.id) %></p>
+<% end %>
+</p>
+
+<p><strong>LISTED VEHICLES</strong></p>
+<% @vehicles.each do |vehicle| %>
+  <p><%= vehicle.year %> <%= vehicle.make %> <%= vehicle.model %> | <%= link_to "Edit Vehicle", edit_policy_vehicle_path(@policy.id, vehicle.id) %></p>
 <% end %>
 </p>

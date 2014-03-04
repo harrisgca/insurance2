@@ -1,15 +1,15 @@
 <h1>ACME INSURANCE COMPANY</h1>
-<h2><%= "Policy# #{@policy.id} - DRIVER INFO" %></h2>
-
+<h2><%= "Policy# #{@policy.id} - VEHICLE INFO" %></h2>
 <hr>
 <p><%= link_to "Drivers", policy_drivers_path(@policy.id) %> | <%= link_to "Vehicles", policy_vehicles_path(@policy.id) %> | <%= link_to "Home", root_path %></p>
 <hr>
 
-<% @drivers.each do |driver| %>
+<% @vehicles.each do |vehicle| %>
 <p>
-<%= driver.full_name %>
-<%= driver.birthdate %>
+<%= vehicle.year %>
+<%= vehicle.make %>
+<%= vehicle.model %>
 </p>
 <% end %>
 
-<%= paginate @drivers %>
+<%= paginate @vehicles %>
