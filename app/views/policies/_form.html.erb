@@ -1,0 +1,38 @@
+<%= form_for [@policy] do |f| %>
+  <% if @policy.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@policy.errors.count, "error") %> prohibited this driver from being saved:</h2>
+
+      <ul>
+      <% @policy.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<p>
+  <%= label_tag("Address 1") %><br>
+  <%= f.text_field :mail_addr_1 %>
+</p>
+<p>
+  <%= label_tag("Address 2") %><br>
+  <%= f.text_field :mail_addr_2 %>
+</p>
+<p>
+  <%= label_tag("City") %><br>
+  <%= f.text_field :mail_addr_city %>
+</p>
+<p>
+  <%= label_tag("State") %><br>
+  <%= f.text_field :mail_addr_state %>
+</p>
+<p>
+<p>
+  <%= label_tag("Zip Code") %><br>
+  <%= f.text_field :mail_addr_zip %>
+</p>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+  <% end %>

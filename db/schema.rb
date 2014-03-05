@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140303012556) do
+ActiveRecord::Schema.define(version: 20140305045014) do
 
   create_table "drivers", force: true do |t|
     t.string   "first_name"
@@ -40,7 +40,28 @@ ActiveRecord::Schema.define(version: 20140303012556) do
     t.integer  "mail_addr_zip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
+
+  add_index "policies", ["user_id"], name: "index_policies_on_user_id"
+
+  create_table "users", force: true do |t|
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
   create_table "vehicles", force: true do |t|
     t.integer  "year"
@@ -61,5 +82,23 @@ ActiveRecord::Schema.define(version: 20140303012556) do
   end
 
   add_index "vehicles", ["policy_id"], name: "index_vehicles_on_policy_id"
+
+  create_table "views", force: true do |t|
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "views", ["email"], name: "index_views_on_email", unique: true
+  add_index "views", ["reset_password_token"], name: "index_views_on_reset_password_token", unique: true
 
 end

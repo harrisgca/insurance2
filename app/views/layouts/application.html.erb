@@ -8,6 +8,12 @@
 </head>
 <body>
 
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
+
+<%= "Logged in as #{current_user.email}" if user_signed_in? %>
+
+
 <%= yield %>
 
 </body>

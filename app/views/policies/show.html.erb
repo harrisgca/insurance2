@@ -16,9 +16,9 @@
 <%= link_to 'Back', policies_path %>
 
 <p><strong>LISTED DRIVERS</strong></p>
-<% @drivers.each do |driver| %>
-  <p><%= driver.full_name %> | <%= link_to "Edit Driver", edit_policy_driver_path(@policy.id, driver.id) %></p>
-<% end %>
+	<% @drivers.each do |driver| %>
+	  <p><%= driver.full_name %> | <%= link_to "Edit Driver", edit_policy_driver_path(@policy.id, driver.id) %></p>
+	<% end %>
 </p>
 
 <p><strong>LISTED VEHICLES</strong></p>
