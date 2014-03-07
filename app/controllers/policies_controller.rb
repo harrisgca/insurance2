@@ -43,7 +43,7 @@ class PoliciesController < ApplicationController
 
   def destroy
     @policy = Policy.find(params[:id])
-    @post.destroy
+    @policy.destroy
     redirect_to policies_path
   end
 

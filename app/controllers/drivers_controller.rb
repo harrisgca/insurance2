@@ -1,26 +1,22 @@
 class DriversController < ApplicationController
 
   before_filter :authenticate_user!, only:[:new, :create, :edit, :update, :destroy]
+  before_action :get_policy
+  before_action :get_driver, only:[:show, :edit, :update, :destroy]
 
   def index
-    @policy = Policy.find(params[:policy_id])
     @pol_id = @policy.id
     @drivers = Driver.where(policy_id: @pol_id).page(params[:page]).per(1)
   end
 
   def show
-    @driver = Driver.find(params[:id])
   end
 
   def edit
-    @policy = Policy.find(params[:policy_id])
-    @driver = Driver.find(params[:id])
     @drivers = @policy.drivers.all
   end
 
   def update
-    @policy = Policy.find(params[:policy_id])
-    @driver = Driver.find(params[:id])
 
     if @driver.update(post_params)
       redirect_to @policy
@@ -30,12 +26,10 @@ class DriversController < ApplicationController
   end
 
   def new
-    @policy = Policy.find(params[:policy_id])
     @driver = @policy.drivers.new
   end
 
   def create
-    @policy = Policy.find(params[:policy_id])
     @driver = @policy.drivers.new(post_params)
 
     if @driver.save
@@ -45,9 +39,22 @@ class DriversController < ApplicationController
     end
   end
 
+  def destroy
+    @driver.destroy
+    redirect_to policy_drivers_path
+  end
+
   private
 
   def post_params
     params.require(:driver).permit(:first_name, :middle_init, :last_name, :birthdate, :relationship, :vehicle)
+  end
+
+  def get_policy
+    @policy = Policy.find(params[:policy_id])
+  end
+
+  def get_driver
+    @driver = Driver.find(params[:id])
   end
 end
