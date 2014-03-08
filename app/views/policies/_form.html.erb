@@ -1,3 +1,4 @@
+<div class="well">
 <%= form_for [@policy] do |f| %>
   <% if @policy.errors.any? %>
     <div id="error_explanation">
@@ -36,3 +37,8 @@
     <%= f.submit %>
   </div>
   <% end %>
+</div>
+
+<%= simple_form_for @policy, defaults: { input_html: { class: 'maxlength: 20' } } do |f| %>
+  <%= f.input :mail_addr_1, label: "Address 1" %>
+<% end %>

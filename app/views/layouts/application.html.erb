@@ -8,13 +8,15 @@
 </head>
 <body>
 
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
+	<div class="container">
+	<p class="notice"><%= notice %></p>
+	<p class="alert"><%= alert %></p>
+	<h1 class="text-center">ACME INSURANCE COMPANY </h1>
 
-<%= "Logged in as #{current_user.email}" if user_signed_in? %>
+	<%= "Logged in as #{current_user.email}" if user_signed_in? %>
 
 
-<%= yield %>
-
+	<%= yield %>
+</div>
 </body>
 </html>

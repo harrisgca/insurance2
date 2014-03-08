@@ -1,4 +1,4 @@
-<h1>ACME INSURANCE COMPANY </h1>
+
 <h2>Policy Portal</h2>
 
 <table>
@@ -11,7 +11,7 @@
   </thead>
 
   <tbody>
-    <% @policies.each do |policy| %>
+    <div class=" well"><% @policies.each do |policy| %></div>
       <tr>
 
         <td><%= link_to "Policy # #{policy.id}", policy %></td>
@@ -24,5 +24,5 @@
 
 <br>
 
-<%= link_to 'New Policy', new_policy_path %>
+<div class="well"><%= link_to 'New Policy', new_policy_path %></div>
 
