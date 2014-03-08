@@ -6,7 +6,7 @@ class DriversController < ApplicationController
 
   def index
     @pol_id = @policy.id
-    @drivers = Driver.where(policy_id: @pol_id).page(params[:page]).per(1)
+    @drivers = Driver.where(policy_id: @pol_id)
   end
 
   def show

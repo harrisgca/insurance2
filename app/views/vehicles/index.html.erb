@@ -1,8 +1,11 @@
-<h1>ACME INSURANCE COMPANY</h1>
-<h2><%= "Policy# #{@policy.id} - VEHICLE INFO" %></h2>
-<hr>
-<p><%= link_to "Drivers", policy_drivers_path(@policy.id) %> | <%= link_to "Vehicles", policy_vehicles_path(@policy.id) %> | <%= link_to "Home", root_path %></p>
-<hr>
+
+<h2 class="well"><%= "Policy# #{@policy.id} - VEHICLE INFO" %></h2>
+
+<ul class="nav nav-tabs" style="margin-bottom: 15px;">
+	<li><%= link_to "Policy Info", @policy %></li>
+	<li><%= link_to "Drivers", policy_drivers_path(@policy.id) %></li>
+	<li class="active"><%= link_to "Vehicles ( #{@vehicles.count} )", policy_vehicles_path(@policy.id) %> </li>
+</ul>
 
 <% @vehicles.each do |vehicle| %>
 <p>
@@ -14,4 +17,3 @@
 
 <p><%= link_to "Add new vehicle", new_policy_vehicle_path %></p>
 
-<%= paginate @vehicles %>

@@ -34,11 +34,8 @@
 </p>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class:"btn btn-primary" %>
   </div>
   <% end %>
 </div>
 
-<%= simple_form_for @policy, defaults: { input_html: { class: 'maxlength: 20' } } do |f| %>
-  <%= f.input :mail_addr_1, label: "Address 1" %>
-<% end %>

@@ -1,9 +1,27 @@
-<h1>ACME INSURANCE COMPANY</h1>
-<h2><%= "Policy# #{@policy.id} - DRIVER INFO" %></h2>
 
-<hr>
-<p><%= link_to "Drivers", policy_drivers_path(@policy.id) %> | <%= link_to "Vehicles", policy_vehicles_path(@policy.id) %> | <%= link_to "Home", root_path %></p>
-<hr>
+<h2 class="well"><%= "Policy# #{@policy.id} - DRIVER INFO" %></h2>
+
+<ul class="nav nav-tabs" style="margin-bottom: 15px;">
+	<li><%= link_to "Policy Info", @policy %></li>
+	<li class="active"><%= link_to "Drivers ( #{@drivers.count} )", policy_drivers_path(@policy.id) %></li>
+	<li><%= link_to "Vehicles", policy_vehicles_path(@policy.id) %> </li>
+</ul>
+
+
+
+<% @drivers.each do |driver| %>
+<table class="table table-bordered">
+	<thead>
+		<th class="info"><%= driver.full_name %></th>
+	</thead>
+	<tbody>
+	  		<tr><td><%= driver.birthdate %>
+	</tbody>
+
+</table>
+<% end %>
+
+
 
 <% @drivers.each do |driver| %>
 <p>
@@ -12,6 +30,7 @@
 </p>
 <% end %>
 
-<%= link_to "Add new driver", new_policy_driver_path %>
+<%= link_to "Add new driver", new_policy_driver_path, class: 'btn btn-success' %>
 
-<%= paginate @drivers %>
+
+
