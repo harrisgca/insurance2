@@ -12,6 +12,7 @@ class VehiclesController < ApplicationController
   end
 
   def show
+    redirect_to policy_vehicles_path(@policy)
   end
 
   def new
@@ -22,7 +23,7 @@ class VehiclesController < ApplicationController
   	@vehicle = @policy.vehicles.new(post_params)
   	if
   		@vehicle.save
-  		redirect_to @policy
+  		redirect_to policy_vehicles_path(@policy)
   	else
   		render 'new'
   	end
@@ -35,7 +36,7 @@ class VehiclesController < ApplicationController
   def update
   	if
   		@vehicle.update(post_params)
-  		redirect_to @policy
+  		redirect_to policy_vehicles_path(@policy)
   	else
   		render 'edit'
   	end

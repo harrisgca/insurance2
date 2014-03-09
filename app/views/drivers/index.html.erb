@@ -8,13 +8,17 @@
 </ul>
 
 
+<p>
+	<button type="button" class="btn btn-default expandbutton">Expand (+)</button>
+	<%= link_to "Add New Driver", new_policy_driver_path(@policy), class: "btn btn-success" %>
+</p>
 
 <% @drivers.each do |driver| %>
-<table class="table table-bordered">
+<table class="table table-striped table-hover">
 	<thead>
 		<th class="info"><%= driver.full_name %></th>
 	</thead>
-	<tbody>
+	<tbody class = "slideme">
 	  		<tr>
 	  			<td><strong>D.O.B.: </strong><%= driver.birthdate %></td>
 	  			<td><strong>Relationship: </strong><%= driver.relationship %></td>
@@ -35,15 +39,9 @@
 <% end %>
 
 
-
-<% @drivers.each do |driver| %>
 <p>
-<%= driver.full_name %>
-<%= driver.birthdate %>
+	<button type="button" class="btn btn-default expandbutton">Expand (+)</button>
 </p>
-<% end %>
-
-<%= link_to "Add new driver", new_policy_driver_path, class: 'btn btn-success' %>
 
 <div>
 	<p class="bottom-buttons">

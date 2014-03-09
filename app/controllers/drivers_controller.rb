@@ -11,6 +11,7 @@ class DriversController < ApplicationController
   end
 
   def show
+    redirect_to policy_drivers_path(@policy)
   end
 
   def edit
@@ -20,7 +21,7 @@ class DriversController < ApplicationController
   def update
 
     if @driver.update(post_params)
-      redirect_to @policy
+      redirect_to policy_drivers_path(@policy)
     else
       render 'edit'
     end
@@ -34,7 +35,7 @@ class DriversController < ApplicationController
     @driver = @policy.drivers.new(post_params)
 
     if @driver.save
-      redirect_to @policy
+      redirect_to policy_drivers_path(@policy)
     else
       render 'new'
     end

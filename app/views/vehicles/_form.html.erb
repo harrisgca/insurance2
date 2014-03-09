@@ -23,8 +23,25 @@
   <%= label_tag("Model") %><br>
   <%= f.text_field :model %>
 </p>
+<p>
+  <%= label_tag("VIN") %><br>
+  <%= f.text_field :vin %>
+</p>
+<p>
+  <%= label_tag("Usage") %><br>
+  <%= f.text_field :usage %>
+</p>
+<p>
+  <%= label_tag("Miles") %><br>
+  <%= f.text_field :usage_miles %>
+</p>
+<p>
+  <%= label_tag("Annual Miles") %><br>
+  <%= f.text_field :ann_miles %>
+</p>
+
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Submit", class:"btn btn-success" %>
   </div>
   <% end %>

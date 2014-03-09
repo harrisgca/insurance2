@@ -8,12 +8,17 @@
 </ul>
 
 
+<p>
+	<button type="button" class="btn btn-default expandbutton">Expand (+)</button>
+	<%= link_to "Add New Vehicle", new_policy_vehicle_path(@policy), class: "btn btn-success" %>
+</p>
+
 <% @vehicles.each do |vehicle| %>
-<table class="table table-bordered">
+<table class="table table-striped table-hover">
 	<thead>
 		<th class="info"><%= vehicle.year  %> <%= vehicle.make  %></th>
 	</thead>
-	<tbody>
+	<tbody class = "slideme">
 	  		<tr>
 	  			<td><strong>Year: </strong><%= vehicle.year %></td>
 	  			<td><strong>Make: </strong><%= vehicle.make %></td>
@@ -35,15 +40,8 @@
 </table>
 <% end %>
 
-<% @vehicles.each do |vehicle| %>
-<p>
-<%= vehicle.year %>
-<%= vehicle.make %>
-<%= vehicle.model %>
-</p>
-<% end %>
+<p><button type="button" class="btn btn-default expandbutton">Expand (+)</button></p>
 
-<p><%= link_to "Add new vehicle", new_policy_vehicle_path %></p>
 
 <div>
 	<p class="bottom-buttons">
