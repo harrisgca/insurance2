@@ -8,6 +8,7 @@ class VehiclesController < ApplicationController
     @policy = Policy.find(params[:policy_id])
     @pol_id = @policy.id
     @vehicles = Vehicle.where(policy_id: @pol_id)
+    @drivers = Driver.where(policy_id: @pol_id)
   end
 
   def show

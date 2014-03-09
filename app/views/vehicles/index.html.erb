@@ -3,9 +3,37 @@
 
 <ul class="nav nav-tabs" style="margin-bottom: 15px;">
 	<li><%= link_to "Policy Info", @policy %></li>
-	<li><%= link_to "Drivers", policy_drivers_path(@policy.id) %></li>
+	<li><%= link_to  "Drivers ( #{@drivers.count} )", policy_drivers_path(@policy.id) %></li>
 	<li class="active"><%= link_to "Vehicles ( #{@vehicles.count} )", policy_vehicles_path(@policy.id) %> </li>
 </ul>
+
+
+<% @vehicles.each do |vehicle| %>
+<table class="table table-bordered">
+	<thead>
+		<th class="info"><%= vehicle.year  %> <%= vehicle.make  %></th>
+	</thead>
+	<tbody>
+	  		<tr>
+	  			<td><strong>Year: </strong><%= vehicle.year %></td>
+	  			<td><strong>Make: </strong><%= vehicle.make %></td>
+	  			<td><strong>Model: </strong><%= vehicle.model %></td>
+	  		</tr>
+	  		<tr>
+	  			<td><strong>VIN: </strong><%= vehicle.vin %></td>
+	  		</tr>
+	  		<tr>
+	  			<td><strong>Usage: </strong><%= vehicle.usage %></td>
+	  			<td><strong>Miles: </strong><%= vehicle.usage_miles %></td>
+	  			<td><strong>Ann Miles: </strong><%= vehicle.ann_miles %></td>
+	  		</tr>
+
+	  		<td><%= link_to 'Edit Vehicle', edit_policy_vehicle_path(@policy, vehicle) %></td>
+
+	</tbody>
+
+</table>
+<% end %>
 
 <% @vehicles.each do |vehicle| %>
 <p>
@@ -16,4 +44,10 @@
 <% end %>
 
 <p><%= link_to "Add new vehicle", new_policy_vehicle_path %></p>
+
+<div>
+	<p class="bottom-buttons">
+	<%= link_to 'Back', policy_drivers_path(@policy.id), class: "btn btn-default btn-lg" %>
+	</p>
+</div>
 

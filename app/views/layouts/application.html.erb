@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Insurance</title>
+  <title>Acme Insurance Portal</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-	<div class="container">
+<div class="container">
 	<p class="notice"><%= notice %></p>
 	<p class="alert"><%= alert %></p>
 	<h1 class="text-center">ACME INSURANCE COMPANY </h1>
+	<p class="text-center">( <%= link_to "Portal Home", root_path %> )</p>
 
 	<%= "Logged in as #{current_user.email}" if user_signed_in? %>
 

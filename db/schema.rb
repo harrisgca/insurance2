@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140305045014) do
+ActiveRecord::Schema.define(version: 20140309002112) do
 
   create_table "drivers", force: true do |t|
     t.string   "first_name"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20140305045014) do
     t.integer  "policy_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "job_employer"
   end
 
   add_index "drivers", ["policy_id"], name: "index_drivers_on_policy_id"

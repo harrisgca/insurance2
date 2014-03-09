@@ -7,6 +7,7 @@ class DriversController < ApplicationController
   def index
     @pol_id = @policy.id
     @drivers = Driver.where(policy_id: @pol_id)
+    @vehicles = Vehicle.where(policy_id: @pol_id)
   end
 
   def show
@@ -47,7 +48,8 @@ class DriversController < ApplicationController
   private
 
   def post_params
-    params.require(:driver).permit(:first_name, :middle_init, :last_name, :birthdate, :relationship, :vehicle)
+    params.require(:driver).permit(:first_name, :middle_init, :last_name, :birthdate, :relationship, :vehicle,
+      :job_title, :job_addr, :job_city, :job_state, :job_employer)
   end
 
   def get_policy

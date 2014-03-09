@@ -12,31 +12,48 @@
   <% end %>
 
 <p>
-  <%= label_tag("First Name") %><br>
+  <%= label_tag("First Name", nil, class: "label label-primary") %><br>
   <%= f.text_field :first_name %>
 </p>
+
 <p>
-  <%= label_tag("MI") %><br>
-  <%= f.text_field :middle_init %>
-</p>
-<p>
-  <%= label_tag("Last Name") %><br>
+  <%= label_tag("Last Name", nil , class: "label label-primary") %><br>
   <%= f.text_field :last_name %>
 </p>
 <p>
-  <%= label_tag("D.O.B") %><br>
+  <%= label_tag("D.O.B", nil , class: "label label-primary") %><br>
   <%= f.text_field :birthdate %>
 </p>
 <p>
-  <%= label_tag("Relationship") %><br>
+  <%= label_tag "Relationship", nil , class: "label label-primary" %><br>
   <%= f.text_field :relationship %>
 </p>
 <p>
-  <%= label_tag("Vehicle") %><br>
+  <%= label_tag("Occupation", nil , class: "label label-primary") %><br>
+  <%= f.text_field :job_title %>
+</p>
+<p>
+  <%= label_tag("Employer", nil , class: "label label-primary") %><br>
+  <%= f.text_field :job_employer %>
+</p>
+<p>
+  <%= label_tag("Employer Address", nil , class: "label label-primary") %><br>
+  <%= f.text_field :job_addr %>
+</p>
+<p>
+  <%= label_tag("City", nil , class: "label label-primary") %><br>
+  <%= f.text_field :job_city %>
+</p>
+<p>
+  <%= label_tag("State", nil , class: "label label-primary") %><br>
+  <%= f.text_field :job_state %>
+</p>
+<p>
+  <%= label_tag("Vehicle", nil , class: "label label-primary") %><br>
   <%= f.text_field :vehicle %>
 </p>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Submit", class: "btn btn-success" %>
   </div>
   <% end %>

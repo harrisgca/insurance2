@@ -4,7 +4,7 @@
 <ul class="nav nav-tabs" style="margin-bottom: 15px;">
 	<li><%= link_to "Policy Info", @policy %></li>
 	<li class="active"><%= link_to "Drivers ( #{@drivers.count} )", policy_drivers_path(@policy.id) %></li>
-	<li><%= link_to "Vehicles", policy_vehicles_path(@policy.id) %> </li>
+	<li><%= link_to "Vehicles ( #{@vehicles.count} )", policy_vehicles_path(@policy.id) %> </li>
 </ul>
 
 
@@ -15,7 +15,20 @@
 		<th class="info"><%= driver.full_name %></th>
 	</thead>
 	<tbody>
-	  		<tr><td><%= driver.birthdate %>
+	  		<tr>
+	  			<td><strong>D.O.B.: </strong><%= driver.birthdate %></td>
+	  			<td><strong>Relationship: </strong><%= driver.relationship %></td>
+	  		</tr>
+	  		<tr><td><strong>Occupation: </strong><%= driver.job_title %></td>
+	  		<td><strong>Employer: </strong><%= driver.job_employer %></td>
+	  		</tr>
+	  		<tr>
+	  			<td><strong>Address: </strong><%= driver.job_addr %></td>
+	  			<td><strong>City: </strong><%= driver.job_city %></td>
+	  			<td><strong>State: </strong><%= driver.job_state %></td>
+	  		</tr>
+	  		<td><%= link_to 'Edit driver', edit_policy_driver_path(@policy, driver) %></td>
+
 	</tbody>
 
 </table>
@@ -32,5 +45,10 @@
 
 <%= link_to "Add new driver", new_policy_driver_path, class: 'btn btn-success' %>
 
-
+<div>
+	<p class="bottom-buttons">
+	<%= link_to 'Back', policy_path(@policy.id), class: "btn btn-default btn-lg" %>
+	<%= link_to 'Next', policy_vehicles_path(@policy.id), class: "btn btn-default btn-lg" %>
+	</p>
+</div>
 
