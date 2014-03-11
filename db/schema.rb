@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140309002112) do
+ActiveRecord::Schema.define(version: 20140311034427) do
 
   create_table "drivers", force: true do |t|
     t.string   "first_name"
@@ -45,6 +45,19 @@ ActiveRecord::Schema.define(version: 20140309002112) do
   end
 
   add_index "policies", ["user_id"], name: "index_policies_on_user_id"
+
+  create_table "rails_admin_histories", force: true do |t|
+    t.text     "message"
+    t.string   "username"
+    t.integer  "item"
+    t.string   "table"
+    t.integer  "month",      limit: 2
+    t.integer  "year",       limit: 5
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "rails_admin_histories", ["item", "table", "month", "year"], name: "index_rails_admin_histories"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
