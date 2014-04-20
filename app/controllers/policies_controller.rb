@@ -12,6 +12,7 @@ class PoliciesController < ApplicationController
     @pol_id = @policy.id
     @drivers = Driver.where(policy_id: @pol_id)
     @vehicles = Vehicle.where(policy_id: @pol_id)
+    @messages = Message.where(policy_id: @pol_id).last
   end
 
   def new

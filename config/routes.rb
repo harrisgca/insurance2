@@ -13,6 +13,7 @@ Insurance::Application.routes.draw do
   resources :policies do
     resources :drivers
     resources :vehicles
+    resources :messages
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

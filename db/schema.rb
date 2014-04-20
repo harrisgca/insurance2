@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140311034427) do
+ActiveRecord::Schema.define(version: 20140416042828) do
 
   create_table "drivers", force: true do |t|
     t.string   "first_name"
@@ -32,6 +32,17 @@ ActiveRecord::Schema.define(version: 20140311034427) do
   end
 
   add_index "drivers", ["policy_id"], name: "index_drivers_on_policy_id"
+
+  create_table "messages", force: true do |t|
+    t.text     "text"
+    t.integer  "user_id"
+    t.integer  "policy_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "messages", ["policy_id"], name: "index_messages_on_policy_id"
+  add_index "messages", ["user_id"], name: "index_messages_on_user_id"
 
   create_table "policies", force: true do |t|
     t.string   "mail_addr_1"
