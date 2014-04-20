@@ -1,0 +1,9 @@
+<h2 class="well"><%= "Policy# #{@policy.id} - MESSAGES" %></h2>
+
+<%= link_to "Create New Message", new_policy_message_path(@policy.id) %>
+
+<p>
+<% @messages.each do |message| %>
+	<p><%= message.text %> | <%= message.user.username %> | <%= link_to "Edit", edit_policy_message_path(@policy, message) %> </p>
+<% end %>
+</p>
